@@ -101,24 +101,6 @@ class DexterCloud:
 		self.query_history = []
 		self.response_history = []
 
-	def get_input(self):
-		# get input from microphone -> google api -> text
-		while True:
-			try:
-				with speech_recognition.Microphone() as mic:
-					self.recognizer.adjust_for_ambient_noise(mic,duration=0.2)
-					audio = self.recognizer.listen(mic)
-					text = self.recognizer.recognize_google(audio)
-					text = text.lower()
-					print(f"You said:\n{text}")
-					if (text != ""):
-						self.message = text
-						return text
-					else:
-						print("empty string")
-			except Exception as ex:
-				print(ex)
-
 
 	def process_input(self, text):
 		text = clean_text(text)
@@ -147,64 +129,4 @@ class DexterCloud:
 				self.context += 'AI: ' + res + '\n'
 				return res
 
-
-	def listen(self):
-		
-		#playsound('sounds/boing.wav')
-		
-		run = True
-
-
-		print('Listening...')
-
-
-		with sr.Microphone() as source:
-			
-			#self.recognizer.adjust_for_ambient_noise(source, duration=0.5)
-			
-		
-			try:
-				recorded_audio = self.recognizer.listen(source, timeout=1)
-				
-				print("Recognizing")
-
-				start = time.time()
-
-				text = self.recognizer.recognize_google(
-						recorded_audio,
-						language='en-US')
-
-			except Exception as ex:
-				if self.debug:
-					print(ex)
-
-			else:
-				
-				decode_time = time.time() - start
-
-				if self.debug:
-					print("Detection time: {}".format(decode_time))
-
-				'''
-				with open('logs/decode-time.txt', 'a') as decode:
-					decode.write("{}\n".format(decode_time))
-					decode.close()
-				'''
-
-				if self.debug:
-					print("Decoded Text : {}".format(text))
-
-											
-				self.process_input(text)
-
-				if self.debug:
-					print("Total Response Time: {}\n".format(time.time() - start))
-
-				'''
-				with open('logs/total-response-time.txt', 'a') as trt:
-					trt.write("{}\n".format(time.time() - start))
-					trt.close()
-				'''
-
-		return
 
