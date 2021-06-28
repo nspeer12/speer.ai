@@ -9,7 +9,7 @@ COPY . /app
 WORKDIR /app
 
 RUN pip3 install --no-cache-dir -r requirements.txt
-RUN chmod 444 app.py
+RUN chmod 444 main.py
 RUN chmod 444 requirements.txt
 
 # Service must listen to $PORT environment variable.
