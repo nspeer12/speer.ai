@@ -1,20 +1,13 @@
-# https://hub.docker.com/_/python
-#
-# python:3 builds a 954 MB image - 342.3 MB in Google Container Registry
-FROM python:3
+FROM tiangolo/uvicorn-gunicorn:python3.8-slim
 
 COPY . /app
 
-# Create and change to the app directory.
 WORKDIR /app
 
-RUN pip3 install --no-cache-dir -r requirements.txt
-RUN chmod 444 main.py
-RUN chmod 444 requirements.txt
+RUN pip3 install -r requirements.txt
 
-# Service must listen to $PORT environment variable.
-# This default value facilitates local development.
-ENV PORT 8080
+EXPOSE 80
 
-# Run the web service on container startup.
-CMD [ "uvicorn", "main:app" ]
+WORKDIR /build/app
+
+CMD python -m uvicorn main:app --host 0.0.0.0 --port 80

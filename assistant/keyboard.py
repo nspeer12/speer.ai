@@ -34,6 +34,12 @@ def enter(*args):
 	pyautogui.press('enter')
 	return ''
 
+
+def fullscreen(*args):
+	pyautogui.press('f')
+	return ''
+
+	
 def search(*args):
 	pyautogui.press('browsersearch')
 	return ''
