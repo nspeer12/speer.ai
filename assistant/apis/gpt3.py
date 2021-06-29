@@ -1,7 +1,11 @@
+import os
 import openai
 
-openai.organization = "org-fEhf9cVXO5Gy5N7wHGEu4RjT"
-openai.api_key = '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'
+
+openai.organization = os.environ['openai_org']
+
+
+openai.api_key = os.environ['openai_key']
 
 
 def gpt3_answer(question:str, max_tokens=256, model='curie'):
