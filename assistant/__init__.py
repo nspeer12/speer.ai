@@ -1,21 +1,16 @@
 import os
 from os import path
-import speech_recognition as sr
 import datetime
 import time
 from multiprocessing import Process
-from scipy.io.wavfile import write
-from playsound import playsound
 import csv
 import torch
 import torch.nn as nn
-import speech_recognition
 import nltk
 from nltk.stem import WordNetLemmatizer
+nltk.download('punkt')
 import wave
 import numpy as np
-import pvporcupine
-import pyaudio
 import struct
 
 # gotta back that shit up for imports to work
@@ -26,14 +21,6 @@ from assistant.skills import *
 from assistant.utils.intro import intro
 from assistant.model.assistantModel import NeuralNet
 from assistant.nlp import *
-
-
-
-MIC_SOURCE = 1
-WAKE_WORDS = ["Dexter", "hey Dexter", "texture", "computer", "Okay computer" "hey computer", "dex"]
-
-
-
 
 
 class DexterCloud:

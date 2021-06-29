@@ -1,4 +1,3 @@
-from assistant.keyboard import *
 from assistant.voice import *
 from assistant.utils.intro import intro
 from assistant.apis.gpt3 import *
@@ -10,7 +9,6 @@ from assistant.apis.weather_api import weather_get
 
 import time
 import datetime
-import pywhatkit as kit
 import json
 import requests
 
@@ -39,90 +37,6 @@ def math(query, context):
 def news(query, context):
     ans = "making api call to top stories from reddit"
 
-def play(query, context):
-    song = query.replace("play ", "")
-    kit.playonyt(str(song))
-    return 'playing ' + str(song)
-
-def resume(query, context):
-    # use WinRT api in the future
-    pyautogui.press('playpause')
-    return None
-
-def pause(query, context):
-    # use WinRT api in the future
-    pyautogui.press('playpause')
-    return None
-
-def increaseVolume(query, context):
-    pyautogui.press('volumeup')
-    return None
-
-def decreaseVolume(query, context):
-    pyautogui.press('volumedown')
-    return None
-
-def mute(query, context):
-    # differentiate between unmute using sound api
-    pyautogui.press('volumemute')
-    return None
-
-def unmute(query, context):
-    # differentiate between mute using sound api
-    pyautogui.press('volumemute')
-    return None
-
-def reset(query, context):
-    pyautogui.hotkey('win', 'x')
-    time.sleep(.1)
-    pyautogui.press('u')
-    time.sleep(.1)
-    pyautogui.press('r')
-    return None
-
-def shutdown(query, context):
-    pyautogui.hotkey('win', 'x')
-    time.sleep(.1)
-    pyautogui.press('u')
-    time.sleep(.1)
-    pyautogui.press('u')
-    return None
-
-def sleep(query, context):
-    pyautogui.hotkey('win', 'x')
-    time.sleep(1)
-    pyautogui.press('u')
-    time.sleep(1)
-    pyautogui.press('s')
-    return None
-
-def minimize(query, context):
-    pyautogui.hotkey('win', 'm')
-    return None
-
-def maximize(query, context):
-    pyautogui.hotkey('win', 'up')
-    return None
-
-def restore(query, context):
-    pyautogui.hotkey('win', 'shiftleft', 'm')
-    return None
-
-def switchApplications(query, context):
-    pyautogui.hotkey('alt', 'tab')
-    return None
-
-def switchDesktop(query, context):
-    pyautogui.hotkey('win', 'tab')
-    return None
-
-def openApplication(query, context):
-    voice("opening Application")
-    return None
-
-def openFile(query, context):
-    voice("opening file")
-    return None
 
 def date(query, context):
     t = datetime.datetime.now()

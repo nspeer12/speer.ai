@@ -3,12 +3,12 @@ import threading
 import multiprocessing
 import time
 from fastapi import FastAPI, Request
-from flask import Flask
-from assistant import *
 import requests
 import json
 import os
 from settings import *
+from assistant import *
+
 
 app = FastAPI()
 

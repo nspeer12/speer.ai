@@ -1,6 +1,5 @@
 import requests
 import os
-from playsound import playsound
 import time
 import random
 import multiprocessing
