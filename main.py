@@ -17,7 +17,7 @@ dex = DexterCloud(debug=True)
 
 @app.get('/')
 async def index():
-	return 'dexter ai'
+	return 'dexter'
 
 
 @app.get('/query/{q}')
