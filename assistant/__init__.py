@@ -79,7 +79,6 @@ class DexterCloud:
 			'question' : question,
       		'weather' : weather,
 			'bitcoin_price' : bitcoin_price,
-			'convo' : convo,
 			'print_chat_log' : print_chat_log,
 		}
 
@@ -108,7 +107,7 @@ class DexterCloud:
 		if prediction in self.mappings.keys():
 
 			res = self.mappings[prediction](text, self.context)
-			if res != None:
+			if isinstance(res, str):
 				self.query_history.append(text)
 				self.response_history.append(res)
 

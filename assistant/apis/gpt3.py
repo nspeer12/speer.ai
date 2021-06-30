@@ -1,8 +1,8 @@
 import os
 import openai
 
-openai.organization = os.environ['openai_org']
-openai.api_key = os.environ['openai_key']
+openai.organization = 'org-fEhf9cVXO5Gy5N7wHGEu4RjT'
+openai.api_key = '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'
 
 
 def gpt3_answer(question:str, max_tokens=256, model='curie'):
@@ -31,11 +31,10 @@ def gpt3_answer(question:str, max_tokens=256, model='curie'):
 		if len(ans) > 0:
 			ans = ans[0]
 
+		print('ans: ', ans)
+		
 	return ans
 
-
-if __name__ == '__main__':
-	print(gpt3_answer('what is the capital of india'))
 
 
 def gpt3_convo(question:str, context, max_tokens=256, model='curie'):
@@ -64,3 +63,7 @@ def gpt3_convo(question:str, context, max_tokens=256, model='curie'):
 
 	return response
 	
+
+
+if __name__ == '__main__':
+	print(gpt3_answer('what is the capital of india'))
