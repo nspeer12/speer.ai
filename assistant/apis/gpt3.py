@@ -2,7 +2,7 @@ import os
 import openai
 
 openai.organization = 'org-fEhf9cVXO5Gy5N7wHGEu4RjT'
-openai.api_key = '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'
+openai.api_key = os.getenv('openai_key')
 
 
 def gpt3_answer(question:str, max_tokens=256, model='curie'):
@@ -32,7 +32,7 @@ def gpt3_answer(question:str, max_tokens=256, model='curie'):
 			ans = ans[0]
 
 		print('ans: ', ans)
-		
+
 	return ans
 
 
