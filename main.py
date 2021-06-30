@@ -20,12 +20,12 @@ async def index():
 	return 'dexter'
 
 
-@app.get('/query/{q}')
-async def fulfillment(q:str):
+@app.get('/query/{query}')
+async def fulfillment(query:str):
 	print(q)
-	if q is not None:
-		print(q)
-		res = dex.process_input(q)
+	if query is not None:
+		print(query)
+		res = dex.process_input(query)
 		print(res)
 		return res
 	else:
