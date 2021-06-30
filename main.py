@@ -22,7 +22,7 @@ async def index():
 
 @app.get('/query/{query}')
 async def fulfillment(query:str):
-	print(q)
+	print(query)
 	if query is not None:
 		print(query)
 		res = dex.process_input(query)
