@@ -14,6 +14,26 @@ app = FastAPI()
 
 dex = DexterCloud(debug=True)
 
+
+
+@app.get('/')
+async def index():
+	return 'dexter ai'
+
+
+
+@app.get('fulfillment/{messsage}')
+async def fulfillment(message:str):
+	print('here')
+	if message is not None:
+		print('message: ' + message)
+		res = dex.process_input(message)
+		print(res)
+		return res
+
+
+		
+'''
 @app.post('/voice-settings')
 def voice_settings():
 	return ''
@@ -27,13 +47,4 @@ def train_assistant():
 	os.chdir('..')
 	os.chdir('..')
 	return 'level up'
-
-
-@app.post('/{messsage}')
-async def fulfillment(message:str):
-	print('here')
-	if message is not None:
-		print('message: ' + message)
-		res = dex.process_input(message)
-		print(res)
-		return res
+'''
