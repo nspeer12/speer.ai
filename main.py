@@ -26,11 +26,11 @@ def index(request:Request, query: Optional[str] = None):
 		print(query)
 		ans = dex.process_input(query)
 		print(ans)
-		
+
 	return templates.TemplateResponse('index.html', {"request": request, "ans": ans})
 
 
-@app.get('/query/{query}')
+@app.get('/api/')
 async def fulfillment(query:str):
 	print(query)
 	if query:
@@ -39,4 +39,4 @@ async def fulfillment(query:str):
 		print(res)
 		return res
 	else:
-		return "hi i'm dexter"
+		return '400'
