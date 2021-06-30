@@ -1,12 +1,7 @@
 import os
 import openai
 
-os.environ['openai_org'] = 'username'
-os.environ['openai_key'] = 'secret'
-
 openai.organization = os.environ['openai_org']
-
-
 openai.api_key = os.environ['openai_key']
 
 
